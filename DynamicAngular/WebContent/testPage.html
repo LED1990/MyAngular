@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	
+</head>
+<body>
+	<div ng-app="myAppName" ng-controller="contName"
+		ng-init="otherVar = 'by init'; number = 10">
+		<p>
+			Name: <input type="text" ng-model="name">
+		</p>
+		<p ng-bind="name"></p>
+		some value from init: <p ng-bind="otherVar"></p>
+		number from init: : <p ng-bind="number"></p>
+		below example with expression (expressions are in double brackets):</br>
+		expression: { { 5 + 5 } } gives: {{5+5}} </br> 
+		expressions works the same way as ng - bind. Variable 'name' displayed by expression: {{name | uppercase}}
+		</br>
+		
+		First Name: <input type="text" ng-model="name"><br> Last
+		Name: <input type="text" ng-model="surname"><br> full
+		name: {{name+' '+surname}}
+
+	</div>	
+	
+	<script>
+		var appName = angular.module('myAppName', []);
+		appName.controller('contName', function($scope) {
+			$scope.name = "john";
+			$scope.surname = "ruchacz";
+		});
+	</script>
+</body>
+</html>
